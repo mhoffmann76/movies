@@ -1,6 +1,20 @@
+const database = require("./db/db");
 const express = require("express");
 const app = express();
-const database = require("./db/db");
+
+const Movie = require("./models/movie");
+const MovieRoutes = require("./routes/Routes");
+const handblebars = require("express-handlebars");
+const VideosControllers = require("./controllers/ControllerMovie");
+app.engine("handlebars", handblebars.engine());
+app.set("view engine", "handlebars");
+app.use(express.urlencoded({extended: true,}));
+app.use(express.json());
+app.use(express.static("public"));
+app.use("/", MovieRoutes);
+
+
+
 
 async function startServer() {
   try {
