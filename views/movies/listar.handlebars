@@ -1,0 +1,43 @@
+<h1 class="text-center my-3">Lista de filmes</h1>
+<table class="table">
+  <div class="row">
+    <div class="col-12">
+      <thead>
+        <th>Código</th>
+        <th>Título</th>
+        <th>Categoria</th>
+        <th>Genero</th>
+        <th class="text-center">Sinopse</th>
+
+      </thead>
+      <tbody>
+        {{#each movie}}
+          <tr>
+            <th>{{this.id_movie}}</th>
+            <th>{{this.title}}</th>
+            <th>{{this.category}}</th>
+            <th>{{this.gender}}</th>
+            <th class="ps-5">{{this.sinopse}}</th>
+            <th><div class="embed-responsive embed-responsive-16by9">
+                <iframe
+                  width="150"
+                  height="110"
+                  class="embed-responsive-item"
+                  src="{{this.link}}"
+                  allowfullscreen
+                ></iframe>
+              </div></th>
+            <th><a href="/update/{{this.id_movie}}">Editar<i
+                  class="bi bi-pencil- square"
+                ></i></a></th>
+            <th>
+              <form class="borde-0 m-0" action="/remover" method="POST">
+                <input type="hidden" name="id_movie" value={{this.id_movie}} />
+                <input class="btn btn-danger" type="submit" value="Excluir" name="Excluir" />
+              </form></th>
+          </tr>
+        {{/each}}
+      </tbody>
+    </div>
+  </div>
+</table>

@@ -1,0 +1,73 @@
+<h1 class="text-center my-3">Cadastro de videos</h1>
+<form action="/cadastrar" method="post">
+  <div class="row w-50 d-block m-auto g-3">
+    <div class="col-12">
+      <label class="form-label" for="title">Titulo:</label>
+      <input
+        class="form-control"
+        type="title"
+        name="titulo"
+        id="title"
+        placeholder="Digite o titulo do filme"
+      />
+    </div>
+    <div class="col-12">
+      <label class="form-label" for="category">Categoria:</label>
+      <input
+        class="form-control"
+        type="category"
+        name="category"
+        id="category"
+        placeholder="Informa a categoria do filme."
+      />
+    </div>
+    <div class="col-12">
+      <select
+        class="form-select"
+        aria-label="Default Select example"
+        name="gender"
+      >
+
+        <option selected>Selecione</option>
+        <option value="" selected>Selecione o Genero do filme</option>
+        <option value="Ação">Ação</option>
+        <option value="Suspense">Suspense</option>
+        <option value="Comédia">Comédia</option>
+
+      </select>
+    </div>
+
+    <div class="col-12">
+      <label class="form-label" for="link">sinopse:</label>
+      <textarea
+        class="form-control"
+        name="sinopse"
+        id="sinopse"
+        placeholder="Link do video"
+        rows="10"
+        style="resize: none"
+      >
+
+      </textarea>
+
+    </div>
+
+    <div class="col-12">
+      <label class="form-label" for="link">Link do filme:</label>
+      <input
+        class="form-control"
+        name="link"
+        id="link"
+        placeholder="Link do video"
+      />
+    </div>
+
+    <div>
+      <input
+        class="btn btn-primary my-3"
+        type="submit"
+        value="Cadastrar video"
+      />
+    </div>
+  </div>
+</form>
