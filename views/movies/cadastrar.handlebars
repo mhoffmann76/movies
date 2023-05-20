@@ -1,4 +1,29 @@
-<h1 class="text-center my-3">Cadastro de videos</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+        <div class="clear">
+     {{#if success}}
+    <div class="alert alert-success text-center">{{success}}</div>
+      {{/if}}
+
+        {{#if error}}
+    <div class="alert alert-danger text-center">{{error}}</div>
+      {{/if}}
+
+
+
+      </div>
+  
+
+
+  <h1 class="text-center my-3">Cadastro de videos</h1>
 <form action="/cadastrar" method="post">
   <div class="row w-50 d-block m-auto g-3">
     <div class="col-12">
@@ -9,6 +34,7 @@
         name="titulo"
         id="title"
         placeholder="Digite o titulo do filme"
+        autofocus="true";
       />
     </div>
     <div class="col-12">
@@ -28,12 +54,14 @@
         name="gender"
       >
 
-        <option selected>Selecione</option>
+        <option value="" selected>Selecione</option>
         <option value="" selected>Selecione o Genero do filme</option>
         <option value="Ação">Ação</option>
         <option value="Suspense">Suspense</option>
         <option value="Comédia">Comédia</option>
-
+        <option value="Terror">Terror</option>
+        <option value="Drama">Drama</option>
+         <option value="Romance">Romance</option>
       </select>
     </div>
 
@@ -43,8 +71,7 @@
         class="form-control"
         name="sinopse"
         id="sinopse"
-        placeholder="Link do video"
-        rows="10"
+        placeholder="Sinopse do filme"
         style="resize: none"
       >
 
@@ -58,7 +85,7 @@
         class="form-control"
         name="link"
         id="link"
-        placeholder="Link do video"
+        placeholder="Link do filme"
       />
     </div>
 
@@ -66,8 +93,57 @@
       <input
         class="btn btn-primary my-3"
         type="submit"
-        value="Cadastrar video"
+        value="Cadastrar Filmes"
       />
     </div>
+    <div>
+
+
+
+   
+
   </div>
 </form>
+
+
+
+
+
+    
+  
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

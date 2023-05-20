@@ -1,4 +1,5 @@
 const Movie = require("../models/movie");
+
 module.exports = class MovieController {
   static addMovie(req, res) {
     res.render("movies/cadastrar");
@@ -8,8 +9,10 @@ module.exports = class MovieController {
     try {
       const { titulo, category, gender, sinopse, link } = req.body;
 
-      if (!titulo || !category || !gender || !sinopse || !link)  {
-        return res.status(400).send("Favor preencher todos os campos!!");
+      if (!titulo || !category || !gender || !sinopse || !link) {
+        return res.render("movies/cadastrar", {
+          error: "Preencha todos os campos!",
+        });
       }
 
       const movie = {
@@ -21,7 +24,9 @@ module.exports = class MovieController {
       };
 
       await Movie.create(movie);
-      res.send("Cadastro realizado com sucesso!");
+      res.render("movies/cadastrar", {
+        success: "Cadastro realizado com sucesso!",
+      });
     } catch (error) {
       res.status(500).send("Internal server Error");
     }
@@ -68,6 +73,8 @@ module.exports = class MovieController {
     try {
       const id_movie = req.body.id_movie;
       await Movie.destroy({ where: { id_movie: id_movie } });
+
+      console.log("ID Movie:", id_movie);
       res.redirect("/");
     } catch (error) {
       res.status(500).send("Internal Server error");
